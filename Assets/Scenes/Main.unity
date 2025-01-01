@@ -589,10 +589,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4870633803848589190, guid: 41a2f1b2b680da547885de8bbd7a69d0, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: f29405ed311e99045ae022aecbb98045, type: 3}
+    - target: {fileID: 4870633803848589190, guid: 41a2f1b2b680da547885de8bbd7a69d0, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870633803848589190, guid: 41a2f1b2b680da547885de8bbd7a69d0, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard and Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 5093212792806178700, guid: 41a2f1b2b680da547885de8bbd7a69d0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8572929853501636510, guid: 41a2f1b2b680da547885de8bbd7a69d0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3beb2c021b349a445bde32761bb406db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
