@@ -20,14 +20,14 @@ public class FallingTile : NetworkBehaviour
     private TileState state = TileState.Normal;
     private MeshRenderer meshRenderer;
 
-    //[SerializeField] NetworkVariable<TileState> networkState =  new NetworkVariable<TileState>(TileState.Normal);
-
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-
+    // Use Rpcs to comm. between server and clients
+    // Allows state of falling tile (i.e. colour, destroyed/not)
+    // To be shared across servers + clients
 
     // Decrease 'health' of tile
     // Destory if players have walked on it too much
@@ -47,7 +47,6 @@ public class FallingTile : NetworkBehaviour
                 break;
             case TileState.Red:
                 NetworkManager.Destroy(gameObject);
-                //Destroy(gameObject);
                 break;
         }
     }
