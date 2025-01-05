@@ -12,7 +12,6 @@ public class MouseLook : MonoBehaviour
     float mouseX;
     float mouseY;
 
-
     public void OnLook(InputAction.CallbackContext ctx)
     {
         Vector2 mouseInput = ctx.ReadValue<Vector2>();
