@@ -1,9 +1,11 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
-    // https://www.youtube.com/watch?v=tXDgSGOEatk
+    // Movement: https://www.youtube.com/watch?v=tXDgSGOEatk
+    // Network: https://www.youtube.com/watch?v=2OLUdPkkQPI
     [SerializeField] CharacterController controller;
     [SerializeField] float speed = 10f;
     [SerializeField] float gravity = -30f;
@@ -27,6 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Only move player if owner of this instance
+        if (!IsOwner)
+        {
+            return;
+        }
         isGrounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z), 0.1f, ground); // So it checks from bottom of player
         if (isGrounded)
         {
