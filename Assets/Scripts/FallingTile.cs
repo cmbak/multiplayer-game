@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ enum TileState
     Red,
 }
 
-public class FallingTile : MonoBehaviour
+public class FallingTile : NetworkBehaviour
 {
     [SerializeField] private Material yellow;
     [SerializeField] private Material orange;
@@ -19,14 +20,19 @@ public class FallingTile : MonoBehaviour
     private TileState state = TileState.Normal;
     private MeshRenderer meshRenderer;
 
+    //[SerializeField] NetworkVariable<TileState> networkState =  new NetworkVariable<TileState>(TileState.Normal);
+
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
+
+
     // Decrease 'health' of tile
     // Destory if players have walked on it too much
-    private void ChangeState()
+    [Rpc(SendTo.ClientsAndHost)]
+    private void ChangeStateRpc()
     {
         switch (state)
         {
@@ -40,13 +46,15 @@ public class FallingTile : MonoBehaviour
                 state = TileState.Red;
                 break;
             case TileState.Red:
-                Destroy(gameObject);
+                NetworkManager.Destroy(gameObject);
+                //Destroy(gameObject);
                 break;
         }
     }
 
     // Change material of tile depending on state
-    private void ChangeColour()
+    [Rpc(SendTo.ClientsAndHost)]
+    private void ChangeColourRpc()
     {
         switch (state)
         {
@@ -66,8 +74,8 @@ public class FallingTile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ChangeState();
-            ChangeColour();
+            ChangeStateRpc();
+            ChangeColourRpc();
         }
     }
 }
