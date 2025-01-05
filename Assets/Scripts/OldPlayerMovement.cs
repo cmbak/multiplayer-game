@@ -12,10 +12,12 @@ public class OldPlayerMovement : NetworkBehaviour
     public float jumpForce = 5f;
     public float mouseSens = 2f;
     public Transform groundCheck;
+    public Transform playerCamera;
     public LayerMask ground;
 
     private Rigidbody rb;
     public bool isGrounded;
+    private float cameraVeritcalAngle = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,18 @@ public class OldPlayerMovement : NetworkBehaviour
         rb.velocity = velocity; 
     }
 
+    private void RotateCamera()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSens;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSens;
+
+        transform.Rotate(Vector3.up * mouseX);
+
+        cameraVeritcalAngle -= mouseY;
+        cameraVeritcalAngle = Mathf.Clamp(cameraVeritcalAngle, -90f, 90f);
+        playerCamera.localRotation = Quaternion.Euler(cameraVeritcalAngle, 0f, 0f);
+    }
+
     private void Jump()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.3f, ground);
@@ -52,5 +66,6 @@ public class OldPlayerMovement : NetworkBehaviour
         if (!IsOwner) return;
         MovePlayer();
         Jump();
+        RotateCamera();
     }
 }
