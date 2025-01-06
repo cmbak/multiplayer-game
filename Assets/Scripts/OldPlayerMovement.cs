@@ -22,7 +22,9 @@ public class OldPlayerMovement : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+        // Delete this instance's player if not the owner (i.e. not controlling it)
+        if (!IsOwner) Destroy(playerCamera.gameObject);
     }
 
     private void MovePlayer()
