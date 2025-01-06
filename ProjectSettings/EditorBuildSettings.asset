@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Death.unity
     guid: ff9f80db7de3bdb4c844b1f72a4f49ec
+  - enabled: 1
+    path: Assets/Scenes/NewNewMain.unity
+    guid: cd935925dfab3a64f9aaebd3dcd2ae51
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

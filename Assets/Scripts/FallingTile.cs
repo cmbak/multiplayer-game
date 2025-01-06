@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+
+//using Unity.Netcode;
 using UnityEngine;
 
 enum TileState
@@ -66,7 +68,7 @@ public class FallingTile : NetworkBehaviour
                 meshRenderer.material = red;
                 break;
         }
-    }    
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

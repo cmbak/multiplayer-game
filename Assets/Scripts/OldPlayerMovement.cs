@@ -1,3 +1,4 @@
+
 using Unity.Netcode;
 using UnityEngine;
 
@@ -24,12 +25,7 @@ public class OldPlayerMovement : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         // Delete this instance's player if not the owner (i.e. not controlling it)
-        if (!IsOwner) {
-            Destroy(playerCamera.gameObject);
-        } else
-        {
-            rb.isKinematic = false;
-        }
+        if (!IsOwner) Destroy(playerCamera.gameObject);
     }
 
     private void MovePlayer()
@@ -42,7 +38,7 @@ public class OldPlayerMovement : NetworkBehaviour
 
         Vector3 velocity = moveDir * currentSpeed;
         velocity.y = rb.velocity.y;
-        rb.velocity = velocity; 
+        rb.velocity = velocity;
     }
 
     private void RotateCamera()
