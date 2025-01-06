@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2749248444977997558}
   - component: {fileID: 7378030299829379366}
   - component: {fileID: 6830574740530971894}
-  - component: {fileID: 7077832661624260323}
   - component: {fileID: 3549670994481752022}
+  - component: {fileID: 83940239148612694}
   m_Layer: 6
   m_Name: FallingTile
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1626644496
+  GlobalObjectIdHash: 122554206
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -129,21 +129,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &7077832661624260323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5432584876943780842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4e4355532677947bc8b2e1c14fd141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yellow: {fileID: 2100000, guid: 6872262e968fb5241b558e02a3cf855e, type: 2}
-  orange: {fileID: 2100000, guid: 21641b16014dff14b94273c42aa5763e, type: 2}
-  red: {fileID: 2100000, guid: 3beb2c021b349a445bde32761bb406db, type: 2}
 --- !u!54 &3549670994481752022
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -171,3 +156,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &83940239148612694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432584876943780842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c996e62f672ce441b32e255b4319a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yellow: {fileID: 2100000, guid: 00ad29ee918024f4aab9bb48998ea903, type: 2}
+  orange: {fileID: 2100000, guid: 1a920282e3ef22b4cbbe2a3896d321f6, type: 2}
+  red: {fileID: 2100000, guid: 261a35809cf621e429bb8d182b626c1a, type: 2}

@@ -24,7 +24,12 @@ public class OldPlayerMovement : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         // Delete this instance's player if not the owner (i.e. not controlling it)
-        if (!IsOwner) Destroy(playerCamera.gameObject);
+        if (!IsOwner) {
+            Destroy(playerCamera.gameObject);
+        } else
+        {
+            rb.isKinematic = false;
+        }
     }
 
     private void MovePlayer()
